@@ -7,7 +7,7 @@ import { Textarea } from "./ui/textarea"
 import { Dialog, DialogContent } from "./ui/dialog"
 import { ScrollArea } from "./ui/scroll-area"
 import { useNavigate } from "react-router-dom"
-import friedDessertsImage from "../assets/frieddessertsmenu.jpg" // New image path
+import friedDessertsImage from "../assets/FriedDessertsmenu.jpg" // New image path
 
 export default function FriedDessertsMenu() {
   const [friedDessertsVarieties, setFriedDessertsVarieties] = useState([])
