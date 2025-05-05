@@ -7,7 +7,7 @@ import { Textarea } from "./ui/textarea"
 import { Dialog, DialogContent, DialogTitle } from "./ui/dialog"
 import { ScrollArea } from "./ui/scroll-area"
 import { useNavigate } from "react-router-dom"
-import pastriesImage from "../assets/pastriesmenu.jpg"
+import pastriesImage from "../assets/Pastriesmenu.jpg"
 
 export default function PastriesMenu() {
   const [pastriesVarieties, setPastriesVarieties] = useState([])
