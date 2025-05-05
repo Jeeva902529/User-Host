@@ -1,9 +1,16 @@
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from 'tailwindcss'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss(),
-    react()],
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [tailwindcss()],
+    },
+  },
+  build: {
+    outDir: 'dist', // Default for Vite, but explicitly stated for clarity
+    chunkSizeWarningLimit: 1000, // Adjust to suppress chunk size warnings
+  },
 })
