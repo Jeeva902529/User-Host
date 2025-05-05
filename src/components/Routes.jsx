@@ -13,7 +13,7 @@ import Support from "./Support"
 import FriedRiceMenu from "./FriedRice";
 import DosaMenu from "./Dosa";
 import PastaMenu from "./Pasta";
-import BurgerMenu from "./burger";
+import BurgerMenu from "./Burger";
 import IdliMenu from "./Idli";
 import NaanMenu from "./Naan";
 import RollMenu from "./Roll";
