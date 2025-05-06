@@ -25,7 +25,7 @@ const SupportPage = () => {
     setLoading(true)
     try {
       // In a real app, you would use your actual API endpoint
-      await axios.post("http://localhost:5000/api/support", formData)
+      await axios.post("https://back-end-res-6emf.onrender.com/api/support", formData)
       setSuccess({
         type: "success",
         message: "Your message has been sent successfully! Our team will get back to you shortly.",
