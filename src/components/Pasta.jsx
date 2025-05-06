@@ -28,7 +28,7 @@ export default function PastaMenu() {
   // Fetch Pasta data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/pasta")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/pasta")
       .then((response) => setPastaVarieties(response.data))
       .catch((error) => console.error("Error fetching pasta data:", error))
   }, [])
@@ -56,7 +56,7 @@ export default function PastaMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         {
           foodName: selectedPasta.name,
           basePrice: selectedPasta.price,
@@ -74,7 +74,7 @@ export default function PastaMenu() {
       setCustomNotes("")
 
       // Update quantity in backend and UI
-      await axios.patch(`http://localhost:5000/api/foods/${selectedPasta._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedPasta._id}/decrease-quantity`)
       
       setPastaVarieties(prev =>
         prev.map(pasta =>
