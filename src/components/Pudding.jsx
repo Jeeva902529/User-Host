@@ -27,7 +27,7 @@ export default function PuddingMenu() {
 
   // Fetch Pudding data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/foods/pudding")
+    axios.get("https://back-end-res-6emf.onrender.com/api/foods/pudding")
       .then(response => setPuddings(response.data))
       .catch(error => console.error("Error fetching puddings:", error))
   }, [])
@@ -61,7 +61,7 @@ export default function PuddingMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -72,7 +72,7 @@ export default function PuddingMenu() {
       setCustomNotes("")
       
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedPudding._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedPudding._id}/decrease-quantity`)
       setPuddings(prev => 
         prev.map(pudding => 
           pudding._id === selectedPudding._id
