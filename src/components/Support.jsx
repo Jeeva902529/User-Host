@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import axios from "axios"
 import { motion } from "framer-motion"
@@ -24,7 +23,6 @@ const SupportPage = () => {
     e.preventDefault()
     setLoading(true)
     try {
-      // In a real app, you would use your actual API endpoint
       await axios.post("https://back-end-res-6emf.onrender.com/api/support", formData)
       setSuccess({
         type: "success",
@@ -39,7 +37,6 @@ const SupportPage = () => {
     }
     setLoading(false)
 
-    // Scroll to the success message
     setTimeout(() => {
       window.scrollTo({
         top: document.body.scrollHeight,
@@ -86,7 +83,7 @@ const SupportPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#f6f6e5]">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-16">
         {/* Header Section */}
         <div className="text-center mb-16">
@@ -144,7 +141,6 @@ const SupportPage = () => {
                 <p className="mb-8 text-gray-300">
                   Have a question or feedback? Fill out the form or contact us directly using the information below.
                 </p>
-
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="bg-[#ff3131] p-3 rounded-full mr-4">
@@ -168,7 +164,6 @@ const SupportPage = () => {
                       <p className="text-gray-300 mt-1">(555) 123-4567</p>
                     </div>
                   </div>
-
                   <div className="flex items-start">
                     <div className="bg-[#ff3131] p-3 rounded-full mr-4">
                       <svg
@@ -191,7 +186,6 @@ const SupportPage = () => {
                       <p className="text-gray-300 mt-1">support@craverestaurant.com</p>
                     </div>
                   </div>
-
                   <div className="flex items-start">
                     <div className="bg-[#ff3131] p-3 rounded-full mr-4">
                       <svg
@@ -220,7 +214,6 @@ const SupportPage = () => {
                       <p className="text-gray-300 mt-1">123 Culinary Avenue, Foodie District, NY 10001</p>
                     </div>
                   </div>
-
                   <div className="flex items-start">
                     <div className="bg-[#ff3131] p-3 rounded-full mr-4">
                       <svg
@@ -251,7 +244,6 @@ const SupportPage = () => {
               <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }}>
                 <form onSubmit={handleSubmit} className="bg-white shadow-xl rounded-2xl p-8">
                   <h2 className="text-3xl font-bold mb-6 text-[#2b2c40]">Send a Message</h2>
-
                   <div className="mb-6">
                     <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
                       Your Name
@@ -267,7 +259,6 @@ const SupportPage = () => {
                       required
                     />
                   </div>
-
                   <div className="mb-6">
                     <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
                       Your Email
@@ -283,7 +274,6 @@ const SupportPage = () => {
                       required
                     />
                   </div>
-
                   <div className="mb-6">
                     <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
                       Subject
@@ -299,7 +289,6 @@ const SupportPage = () => {
                       required
                     />
                   </div>
-
                   <div className="mb-6">
                     <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
                       Your Message
@@ -315,7 +304,6 @@ const SupportPage = () => {
                       required
                     ></textarea>
                   </div>
-
                   <button
                     type="submit"
                     className="w-full bg-[#ff3131] hover:bg-[#e02020] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center"
@@ -406,7 +394,6 @@ const SupportPage = () => {
           <div className="max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h2 className="text-3xl font-bold mb-8 text-[#2b2c40]">Frequently Asked Questions</h2>
-
               <div className="space-y-4">
                 {faqQuestions.map((faq) => (
                   <div key={faq.id} className="border-b border-gray-200 pb-4">
@@ -443,7 +430,6 @@ const SupportPage = () => {
                   </div>
                 ))}
               </div>
-
               <div className="mt-8 p-6 bg-gray-100 rounded-lg">
                 <h3 className="text-xl font-semibold text-[#2b2c40] mb-2">Still have questions?</h3>
                 <p className="text-gray-600 mb-4">
@@ -464,4 +450,4 @@ const SupportPage = () => {
   )
 }
 
-export default SupportPage
+export default SupportPag
