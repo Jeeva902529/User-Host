@@ -32,7 +32,7 @@ function Menu() {
         { name: 'Naan', image: naan, path: '/Home/Naan' },
         { name: 'Roll', image: roll, path: '/Home/Roll' },
         { name: 'Pizza', image: pizza, path: '/Home/Pizza' },
-        { name: 'Sandwich', image: sandwich, path: '/Home/Sandwitch' },
+        { name: 'Sandwich', image: sandwich, path: '/Home/Sandwich' },
     ];
 
     const desserts = [
