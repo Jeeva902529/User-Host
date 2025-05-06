@@ -26,7 +26,7 @@ const CartPage = () => {
       const token = localStorage.getItem("token")
       const selectedTable = localStorage.getItem("tableNumber") // 👈 get the selected table number
   
-      const res = await axios.get("http://localhost:5000/api/orders/my-orders", {
+      const res = await axios.get("https://back-end-res-6emf.onrender.com/api/orders/my-orders", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,7 +51,7 @@ const CartPage = () => {
     try {
       const token = localStorage.getItem("token")
 
-      await axios.delete(`http://localhost:5000/api/orders/cancel-order/${orderId}`, {
+      await axios.delete(`https://back-end-res-6emf.onrender.com/api/orders/cancel-order/${orderId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
