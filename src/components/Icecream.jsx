@@ -29,7 +29,7 @@ export default function IceCreamMenu() {
     const tableNumber = localStorage.getItem("tableNumber")
 
     axios
-      .get("http://localhost:5000/api/foods/icecream", {
+      .get("https://back-end-res-6emf.onrender.com/api/foods/icecream", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setIceCreams(response.data))
@@ -71,7 +71,7 @@ export default function IceCreamMenu() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -83,7 +83,7 @@ export default function IceCreamMenu() {
 
       // Update inventory
       await axios.patch(
-        `http://localhost:5000/api/foods/${selectedIceCream._id}/decrease-quantity`,
+        `https://back-end-res-6emf.onrender.com/api/foods/${selectedIceCream._id}/decrease-quantity`,
         {}, // Empty body since we're using PATCH
         { headers: { Authorization: `Bearer ${token}` } }
       )
