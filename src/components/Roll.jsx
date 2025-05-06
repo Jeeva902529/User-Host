@@ -27,7 +27,7 @@ export default function RollMenu() {
 
   // Fetch Roll data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/foods/roll")
+    axios.get("https://back-end-res-6emf.onrender.com/api/foods/roll")
       .then(response => setRolls(response.data))
       .catch(error => console.error("Error fetching rolls:", error))
   }, [])
@@ -51,7 +51,7 @@ export default function RollMenu() {
     if (!token || !tableNumber || !selectedRoll) return
 
     try {
-      await axios.post("http://localhost:5000/api/orders/place-order", {
+      await axios.post("https://back-end-res-6emf.onrender.com/api/orders/place-order", {
         foodName: selectedRoll.name,
         basePrice: selectedRoll.price,
         addOns: addOns.filter(addon => addon.quantity > 0),
@@ -64,7 +64,7 @@ export default function RollMenu() {
       setAddOns(prev => prev.map(addon => ({ ...addon, quantity: 0 })))
       setCustomNotes("")
       
-      await axios.patch(`http://localhost:5000/api/foods/${selectedRoll._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedRoll._id}/decrease-quantity`)
       setRolls(prev => 
         prev.map(roll => 
           roll._id === selectedRoll._id
