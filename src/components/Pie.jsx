@@ -28,7 +28,7 @@ export default function PieMenu() {
   // Fetch Pie data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/pie")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/pie")
       .then((response) => setPies(response.data))
       .catch((error) => console.error("Error fetching pie data:", error))
   }, [])
@@ -65,7 +65,7 @@ export default function PieMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -76,7 +76,7 @@ export default function PieMenu() {
       setCustomNotes("")
 
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedPie._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedPie._id}/decrease-quantity`)
       setPies(prev => 
         prev.map(pie => 
           pie._id === selectedPie._id
