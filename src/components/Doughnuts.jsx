@@ -28,7 +28,7 @@ export default function DoughnutsMenu() {
   // Fetch Doughnuts data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/doughnuts")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/doughnuts")
       .then((response) => setDoughnutsVarieties(response.data))
       .catch((error) => console.error("Error fetching doughnuts data:", error))
   }, [])
@@ -65,7 +65,7 @@ export default function DoughnutsMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -76,7 +76,7 @@ export default function DoughnutsMenu() {
       setCustomNotes("")
 
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedDoughnut._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedDoughnut._id}/decrease-quantity`)
       setDoughnutsVarieties(prev => 
         prev.map(d => 
           d._id === selectedDoughnut._id
