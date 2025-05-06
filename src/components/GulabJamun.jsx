@@ -27,7 +27,7 @@ export default function GulabJamunMenu() {
   useEffect(() => {
     const token = localStorage.getItem("token")
     axios
-      .get("http://localhost:5000/api/foods/gulabjamun")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/gulabjamun")
       .then((response) => setGulabJamuns(response.data))
       .catch((error) => console.error("Error fetching gulab jamun data:", error))
   }, [])
@@ -67,7 +67,7 @@ export default function GulabJamunMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -79,7 +79,7 @@ export default function GulabJamunMenu() {
       
       // Update inventory
       await axios.patch(
-        `http://localhost:5000/api/foods/${selectedGulabJamun._id}/decrease-quantity`,
+        `https://back-end-res-6emf.onrender.com/api/foods/${selectedGulabJamun._id}/decrease-quantity`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       )
