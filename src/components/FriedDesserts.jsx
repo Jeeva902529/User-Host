@@ -28,7 +28,7 @@ export default function FriedDessertsMenu() {
   // Fetch Fried Desserts data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/frieddesserts")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/frieddesserts")
       .then((response) => setFriedDessertsVarieties(response.data))
       .catch((error) => console.error("Error fetching desserts data:", error))
   }, [])
@@ -65,7 +65,7 @@ export default function FriedDessertsMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -76,7 +76,7 @@ export default function FriedDessertsMenu() {
       setCustomNotes("")
       
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedDessert._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedDessert._id}/decrease-quantity`)
       setFriedDessertsVarieties(prev => 
         prev.map(dessert => 
           dessert._id === selectedDessert._id
