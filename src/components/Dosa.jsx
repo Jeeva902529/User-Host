@@ -28,7 +28,7 @@ export default function DosaMenu() {
   // Fetch Dosa data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/dosa")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/dosa")
       .then((response) => setDosaVarieties(response.data))
       .catch((error) => console.error("Error fetching dosa data:", error))
   }, [])
@@ -56,7 +56,7 @@ export default function DosaMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         {
           foodName: selectedDosa.name,
           basePrice: selectedDosa.price,
@@ -74,7 +74,7 @@ export default function DosaMenu() {
       setCustomNotes("")
 
       // Update quantity in backend and UI
-      await axios.patch(`http://localhost:5000/api/foods/${selectedDosa._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedDosa._id}/decrease-quantity`)
       
       setDosaVarieties(prev =>
         prev.map(dosa =>
