@@ -43,7 +43,7 @@ function Menu() {
         { name: 'Brownies', image: brownies, path: '/desserts/Brownie' },
         { name: 'Doughnuts', image: Doughnuts, path: '/desserts/doughnuts' },
         { name: 'Fried Desserts', image: FriedDesserts, path: '/desserts/FriedDesserts' },
-        { name: 'More', image: dessertVariety, path: '/desserts/more' },
+        { name: 'More', image: dessertVariety, path: '/desserts' },
     ];
 
     return (
