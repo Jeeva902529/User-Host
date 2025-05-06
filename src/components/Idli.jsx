@@ -27,7 +27,7 @@ export default function IdliMenu() {
 
   // Fetch Idli data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/foods/idli")
+    axios.get("https://back-end-res-6emf.onrender.com/api/foods/idli")
       .then(response => setIdlis(response.data))
       .catch(error => console.error("Error fetching idlis:", error))
   }, [])
@@ -51,7 +51,7 @@ export default function IdliMenu() {
     if (!token || !tableNumber || !selectedIdli) return
 
     try {
-      await axios.post("http://localhost:5000/api/orders/place-order", {
+      await axios.post("https://back-end-res-6emf.onrender.com/api/orders/place-order", {
         foodName: selectedIdli.name,
         basePrice: selectedIdli.price,
         addOns: addOns.filter(addon => addon.quantity > 0),
@@ -64,7 +64,7 @@ export default function IdliMenu() {
       setAddOns(prev => prev.map(addon => ({ ...addon, quantity: 0 })))
       setCustomNotes("")
       
-      await axios.patch(`http://localhost:5000/api/foods/${selectedIdli._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedIdli._id}/decrease-quantity`)
       setIdlis(prev => 
         prev.map(idli => 
           idli._id === selectedIdli._id
