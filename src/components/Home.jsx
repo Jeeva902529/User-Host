@@ -23,7 +23,7 @@ function Menu() {
     const menuItems = [
         { name: 'Noodles', image: noodles, path: '/Home/Noodles' },
         { name: 'Momos', image: momos, path: '/Home/Momos' },
-        { name: 'Biryani', image: biryani, path: '/Home/biryani' },
+        { name: 'Biryani', image: biryani, path: '/Home/Biriyani' },
         { name: 'Fried Rice', image: friedrice, path: '/Home/Friedrice' },
         { name: 'Dosa', image: dosa, path: '/Home/Dosa' },
         { name: 'Pasta', image: pasta, path: '/Home/Pasta' },
