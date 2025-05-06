@@ -27,7 +27,7 @@ export default function BurgerMenu() {
 
   // Fetch Burger data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/foods/burger")
+    axios.get("https://back-end-res-6emf.onrender.com/api/foods/burger")
       .then(response => setBurgers(response.data))
       .catch(error => console.error("Error fetching burgers:", error))
   }, [])
@@ -51,7 +51,7 @@ export default function BurgerMenu() {
     if (!token || !tableNumber || !selectedBurger) return
 
     try {
-      await axios.post("http://localhost:5000/api/orders/place-order", {
+      await axios.post("https://back-end-res-6emf.onrender.com/api/orders/place-order", {
         foodName: selectedBurger.name,
         basePrice: selectedBurger.price,
         addOns: addOns.filter(addon => addon.quantity > 0),
@@ -64,7 +64,7 @@ export default function BurgerMenu() {
       setAddOns(prev => prev.map(addon => ({ ...addon, quantity: 0 })))
       setCustomNotes("")
       
-      await axios.patch(`http://localhost:5000/api/foods/${selectedBurger._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedBurger._id}/decrease-quantity`)
       setBurgers(prev => 
         prev.map(burger => 
           burger._id === selectedBurger._id
