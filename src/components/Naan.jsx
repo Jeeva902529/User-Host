@@ -27,7 +27,7 @@ export default function NaanMenu() {
 
   // Fetch Naan data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/foods/naan")
+    axios.get("https://back-end-res-6emf.onrender.com/api/foods/naan")
       .then(response => setNaans(response.data))
       .catch(error => console.error("Error fetching naans:", error))
   }, [])
@@ -51,7 +51,7 @@ export default function NaanMenu() {
     if (!token || !tableNumber || !selectedNaan) return
 
     try {
-      await axios.post("http://localhost:5000/api/orders/place-order", {
+      await axios.post("https://back-end-res-6emf.onrender.com/api/orders/place-order", {
         foodName: selectedNaan.name,
         basePrice: selectedNaan.price,
         addOns: addOns.filter(addon => addon.quantity > 0),
@@ -64,7 +64,7 @@ export default function NaanMenu() {
       setAddOns(prev => prev.map(addon => ({ ...addon, quantity: 0 })))
       setCustomNotes("")
       
-      await axios.patch(`http://localhost:5000/api/foods/${selectedNaan._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedNaan._id}/decrease-quantity`)
       setNaans(prev => 
         prev.map(naan => 
           naan._id === selectedNaan._id
