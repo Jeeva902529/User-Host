@@ -29,7 +29,7 @@ export default function BrowniesMenu() {
   // Fetch Brownies data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/brownies")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/brownies")
       .then((response) => setBrowniesVarieties(response.data))
       .catch((error) => console.error("Error fetching brownies data:", error))
   }, [])
@@ -66,7 +66,7 @@ export default function BrowniesMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -78,7 +78,7 @@ export default function BrowniesMenu() {
       setCustomNotes("")
 
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedBrownie._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedBrownie._id}/decrease-quantity`)
       setBrowniesVarieties(prev =>
         prev.map(brownie =>
           brownie._id === selectedBrownie._id
