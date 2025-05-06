@@ -28,7 +28,7 @@ export default function CakeMenu() {
 
   // Fetch Cake data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/foods/cake")
+    axios.get("https://back-end-res-6emf.onrender.com/api/foods/cake")
       .then(response => setCakes(response.data))
       .catch(error => console.error("Error fetching cakes:", error))
   }, [])
@@ -62,7 +62,7 @@ export default function CakeMenu() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -74,7 +74,7 @@ export default function CakeMenu() {
       setCustomNotes("")
       
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedCake._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedCake._id}/decrease-quantity`)
       setCakes(prev => 
         prev.map(cake => 
           cake._id === selectedCake._id
