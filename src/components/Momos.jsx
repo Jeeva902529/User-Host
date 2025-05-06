@@ -28,7 +28,7 @@ export default function MomosMenu() {
   // Fetch Momos data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/momos")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/momos")
       .then((response) => setMomosVarieties(response.data))
       .catch((error) => console.error("Error fetching momos data:", error))
   }, [])
@@ -56,7 +56,7 @@ export default function MomosMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         {
           foodName: selectedMomos.name,
           basePrice: selectedMomos.price,
@@ -74,7 +74,7 @@ export default function MomosMenu() {
       setCustomNotes("")
 
       // Update quantity in backend and UI
-      await axios.patch(`http://localhost:5000/api/foods/${selectedMomos._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedMomos._id}/decrease-quantity`)
       
       setMomosVarieties(prev =>
         prev.map(momo =>
