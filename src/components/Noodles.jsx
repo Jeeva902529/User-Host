@@ -33,7 +33,7 @@ export default function NoodlesMenu() {
     console.log("Selected Noodle at addToCart:", selectedNoodle);
 
     axios
-    .get(`http://localhost:5000/api/foods/noodles`)
+    .get(`https://back-end-res-6emf.onrender.com/api/foods/noodles`)
       .then((response) => setNoodlesVarieties(response.data))
       .catch((error) => console.error("Error fetching data:", error))
   }, [])
@@ -78,7 +78,7 @@ export default function NoodlesMenu() {
   
     try {
       const orderRes = await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -92,7 +92,7 @@ export default function NoodlesMenu() {
       setCustomNotes("");
   
       // Decrease quantity in backend
-      await axios.patch(`http://localhost:5000/api/foods/${selectedNoodle._id}/decrease-quantity`);
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedNoodle._id}/decrease-quantity`);
   
     
   
