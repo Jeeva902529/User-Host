@@ -27,7 +27,7 @@ export default function PizzaMenu() {
 
   // Fetch Pizza data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/foods/pizza")
+    axios.get("https://back-end-res-6emf.onrender.com/api/foods/pizza")
       .then(response => setPizzas(response.data))
       .catch(error => console.error("Error fetching pizzas:", error))
   }, [])
@@ -51,7 +51,7 @@ export default function PizzaMenu() {
     if (!token || !tableNumber || !selectedPizza) return
 
     try {
-      await axios.post("http://localhost:5000/api/orders/place-order", {
+      await axios.post("https://back-end-res-6emf.onrender.com/api/orders/place-order", {
         foodName: selectedPizza.name,
         basePrice: selectedPizza.price,
         addOns: addOns.filter(addon => addon.quantity > 0),
@@ -64,7 +64,7 @@ export default function PizzaMenu() {
       setAddOns(prev => prev.map(addon => ({ ...addon, quantity: 0 })))
       setCustomNotes("")
       
-      await axios.patch(`http://localhost:5000/api/foods/${selectedPizza._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedPizza._id}/decrease-quantity`)
       setPizzas(prev => 
         prev.map(pizza => 
           pizza._id === selectedPizza._id
