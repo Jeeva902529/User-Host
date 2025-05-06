@@ -73,7 +73,7 @@ export default function MomosMenu() {
       setAddOns(prev => prev.map(addon => ({ ...addon, quantity: 0 })))
       setCustomNotes("")
 
-      // Update quantity in backend and UI
+      // Update quantity in backend and UI1
       await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedMomos._id}/decrease-quantity`)
       
       setMomosVarieties(prev =>
