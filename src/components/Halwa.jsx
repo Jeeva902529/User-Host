@@ -28,7 +28,7 @@ export default function HalwaMenu() {
   // Fetch Halwa data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/halwa")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/halwa")
       .then((response) => setHalwas(response.data))
       .catch((error) => console.error("Error fetching halwa data:", error))
   }, [])
@@ -65,7 +65,7 @@ export default function HalwaMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -76,7 +76,7 @@ export default function HalwaMenu() {
       setCustomNotes("")
       
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedHalwa._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedHalwa._id}/decrease-quantity`)
       setHalwas(prev => 
         prev.map(halwa => 
           halwa._id === selectedHalwa._id
