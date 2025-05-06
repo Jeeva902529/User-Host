@@ -28,7 +28,7 @@ export default function BriyaniMenu() {
   // Fetch Briyani data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/biryani")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/biryani")
       .then((response) => setBriyaniVarieties(response.data))
       .catch((error) => console.error("Error fetching briyani data:", error))
   }, [])
@@ -56,7 +56,7 @@ export default function BriyaniMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         {
           foodName: selectedBriyani.name,
           basePrice: selectedBriyani.price,
@@ -74,7 +74,7 @@ export default function BriyaniMenu() {
       setCustomNotes("")
 
       // Update quantity in backend and UI
-      await axios.patch(`http://localhost:5000/api/foods/${selectedBriyani._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedBriyani._id}/decrease-quantity`)
       
       setBriyaniVarieties(prev =>
         prev.map(briyani =>
