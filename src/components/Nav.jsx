@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`bg-[#f6f6e5] sticky top-0 z-50 ${scrolled ? "shadow-lg" : "shadow-sm"} transition-all duration-300`}>
+      <nav className={`bg-white sticky top-0 z-50 ${scrolled ? "shadow-lg" : "shadow-sm"} transition-all duration-300`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -56,7 +56,7 @@ const Navbar = () => {
                 <NavLink
                   to="/"
                   icon={<User className="w-5 h-5" />}
-                  className="bg-gradient-to-r from-[#ff3131] to-[#ff5733] text-[#f6f6e5] hover:from-[#e62c2c] hover:to-[#e64e2e]"
+                  className="bg-gradient-to-r from-[#ff3131] to-[#ff5733] text-white hover:from-[#e62c2c] hover:to-[#e64e2e]"
                 >
                   Logout
                 </NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
         {/* Mobile menu, show/hide based on menu state */}
         {isOpen && (
           <div className="md:hidden animate-slide-down">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#f6f6e5] border-t border-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
               <MobileNavLink to="/Home" icon={<Home className="w-5 h-5" />}>
                 Home
               </MobileNavLink>
@@ -95,7 +95,7 @@ const Navbar = () => {
               <MobileNavLink
                 to="/"
                 icon={<User className="w-5 h-5" />}
-                className="bg-gradient-to-r from-[#ff3131] to-[#ff5733] text-[#f6f6e5]"
+                className="bg-gradient-to-r from-[#ff3131] to-[#ff5733] text-white"
               >
                 Logout
               </MobileNavLink>
@@ -103,9 +103,6 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-
-      {/* Brand color bars with animation */}
-      
     </>
   )
 }
