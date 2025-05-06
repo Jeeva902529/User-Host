@@ -47,14 +47,14 @@ function Menu() {
     ];
 
     return (
-        <div className="bg-[#f6f6e5]">
-            <div className="bg-[#f6f6e5] min-h-screen py-8 px-6">
+        <div className="bg-white">
+            <div className="bg-white min-h-screen py-8 px-6">
                 {/* Welcome Section */}
                 <div className="relative w-full max-w-5xl mx-auto mt-10">
                     <div className="absolute inset-0 transform -skew-y-3 bg-[#ff3131]"></div>
                     <div className="relative bg-[#122348] text-center py-8 px-4">
-                        <h1 className="text-4xl font-bold text-[#ff3131]">Welcome to <span className="text-[#f6f6e5]">Crave Corner</span></h1>
-                        <p className="text-2xl font-bold text-[#f6f6e5] mt-4">Crave. Savor. Repeat.</p>
+                        <h1 className="text-4xl font-bold text-[#ff3131]">Welcome to <span className="text-white">Crave Corner</span></h1>
+                        <p className="text-2xl font-bold text-white mt-4">Crave. Savor. Repeat.</p>
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@ function Menu() {
                                     alt={item.name}
                                     className="w-40 h-40 object-cover rounded-lg shadow-lg transition-transform transform hover:scale-105"
                                 />
-                                <div className="absolute -top-5 -right-7 w-25 bg-[#122348] text-[#f6f6e5] text-sm sm:text-md font-semibold italic px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-md">
+                                <div className="absolute -top-5 -right-7 w-25 bg-[#122348] text-white text-sm sm:text-md font-semibold italic px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-md">
                                     <center>{item.name}</center>
                                 </div>
                             </a>
@@ -80,28 +80,28 @@ function Menu() {
 
                 {/* Desserts Section */}
                 <div className="mt-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-  <h1 className="text-3xl mt-20 font-bold text-[#ff3131] mb-4">
-    DESS<span className="text-[#122348]">ERTS</span>
-  </h1>
-  <p className="text-[#122348] mb-10 text-lg">
-    Indulge in our delightful desserts, crafted to satisfy your sweet cravings.
-  </p>
+                    <h1 className="text-3xl mt-20 font-bold text-[#ff3131] mb-4">
+                        DESS<span className="text-[#122348]">ERTS</span>
+                    </h1>
+                    <p className="text-[#122348] mb-10 text-lg">
+                        Indulge in our delightful desserts, crafted to satisfy your sweet cravings.
+                    </p>
 
-  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
-    {desserts.map((item, index) => (
-      <a key={index} href={item.path} className="relative group">
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-40 h-40 object-cover rounded-lg shadow-lg transition-transform transform hover:scale-105"
-        />
-                                <div className="absolute -top-5 -right-7 w-25 bg-[#122348] text-[#f6f6e5] text-sm sm:text-md font-semibold italic px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-md">
-                                <center>{item.name}</center>
-        </div>
-      </a>
-    ))}
-  </div>
-</div>
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+                        {desserts.map((item, index) => (
+                            <a key={index} href={item.path} className="relative group">
+                                <img
+                                    src={item.image}
+                                    alt={item.name}
+                                    className="w-40 h-40 object-cover rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                                />
+                                <div className="absolute -top-5 -right-7 w-25 bg-[#122348] text-white text-sm sm:text-md font-semibold italic px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-md">
+                                    <center>{item.name}</center>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );
