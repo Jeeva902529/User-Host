@@ -28,7 +28,7 @@ export default function JalebiMenu() {
   // Fetch Jalebi data from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/foods/jalebi")
+      .get("https://back-end-res-6emf.onrender.com/api/foods/jalebi")
       .then((response) => setJalebiVarieties(response.data))
       .catch((error) => console.error("Error fetching jalebi data:", error))
   }, [])
@@ -65,7 +65,7 @@ export default function JalebiMenu() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/orders/place-order",
+        "https://back-end-res-6emf.onrender.com/api/orders/place-order",
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -76,7 +76,7 @@ export default function JalebiMenu() {
       setCustomNotes("")
 
       // Update inventory
-      await axios.patch(`http://localhost:5000/api/foods/${selectedJalebi._id}/decrease-quantity`)
+      await axios.patch(`https://back-end-res-6emf.onrender.com/api/foods/${selectedJalebi._id}/decrease-quantity`)
       setJalebiVarieties(prev => 
         prev.map(jalebi => 
           jalebi._id === selectedJalebi._id
