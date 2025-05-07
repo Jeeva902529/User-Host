@@ -11,51 +11,49 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  
 
   // Handle Login or Signup
   const handleLoginOrSignup = async (e) => {
     e.preventDefault();
     setError("");
-  
+
     if (!name || !password || !tableNumber) {
       setError("Please enter your name, password, and table number");
       return;
     }
-  
+
     setIsLoading(true);
-  
+
     try {
-     const response = await fetch("https://back-end-res-6emf.onrender.com/api/auth", {
+      const response = await fetch("https://back-end-res-6emf.onrender.com/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, password, tableNumber }),
       });
-  
+
       let data;
       try {
         data = await response.json();
       } catch (jsonError) {
         throw new Error("Invalid JSON response from server.");
       }
-  
+
       if (response.status === 201) {
         // ✅ Show success message if user is newly registered
         setError("✅ You have registered successfully. Enter details again to login.");
         return;
       }
-  
+
       if (!response.ok) {
         throw new Error(data.message || "Login failed");
       }
-  
+
       if (data.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("tableNumber", tableNumber); // ✅ Store table number only after successful login
         console.log("✅ Token stored:", data.token);
         navigate(`/home?table=${tableNumber}`);
-      }
-      else {
+      } else {
         throw new Error("Login failed: No token received.");
       }
     } catch (error) {
@@ -65,8 +63,6 @@ const Login = () => {
       setIsLoading(false);
     }
   };
-  
-  
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
@@ -173,18 +169,6 @@ const Login = () => {
                 )}
               </button>
             </form>
-
-            {/* Skip Authentication */}
-            <div className="mt-5 text-center">
-              <p className="text-white text-sm mb-3">Or continue without an account</p>
-              <button
-                type="button"
-                className="w-full h-10 bg-white/20 text-white font-medium rounded-lg hover:bg-white/30 transition-all duration-300 hover:shadow-md"
-                onClick={() => navigate("/home")}
-              >
-                SKIP FOR NOW
-              </button>
-            </div>
           </div>
         </div>
       </div>
