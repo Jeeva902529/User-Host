@@ -106,7 +106,7 @@ const Login = () => {
 
               {/* Password Input */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-white">Password</label>
+                <label className="text-sm font-medium text-white">Phone number</label>
                 <input
                   type="password"
                   placeholder="Enter Your Password"
