@@ -109,7 +109,7 @@ const Login = () => {
                 <label className="text-sm font-medium text-white">Phone number</label>
                 <input
                   type="password"
-                  placeholder="Enter Your Password"
+                  placeholder="Enter Your Phone number"
                   className="w-full h-10 px-4 bg-white/20 text-white placeholder-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-[#ff3131] transition-all duration-200"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
